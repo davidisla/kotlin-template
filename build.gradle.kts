@@ -22,3 +22,7 @@ tasks.test {
 tasks.withType<KotlinCompile>() {
     kotlinOptions.jvmTarget = "1.8"
 }
+
+task<Exec>("setLocalEnv") {
+    commandLine("git config --local alias.slog \"log --pretty='format:%C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,blue)%>(12,trunc)%ad %C(auto,green)%<(7,trunc)%aN %C(auto,reset)%s%C(auto,red)% gD% D' --graph --date=relative --date-order\"".split(" "))
+}
